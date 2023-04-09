@@ -26,8 +26,11 @@ jobs:
         sudo apt-get install -y python3-pip
         pip3 install awscli --upgrade --user
 
+    - name: Install CDK CLI
+      run: npm install -g aws-cdk
+    
     - name: Install dependencies
       run: npm install
 
     - name: Deploy CDK stack
-      run: cdk deploy
+      run: cdk deploy --require-approval never
